@@ -2,7 +2,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: demo-push
+  name: foobar-push
   annotations:
     # The event we are targeting (ie: pull_request, push)
     pipelinesascode.tekton.dev/on-event: "[push]"
@@ -53,6 +53,7 @@ spec:
               image: registry.access.redhat.com/ubi8/ubi-micro:8.4
               workingDir: $(workspaces.source.path)
               script: |
+                echo "🎉🎉 party time - push 🎉🎉"
                 exit 0
   workspaces:
   - name: source
